@@ -44,18 +44,21 @@ public class Fraction {
              bigger = this.chysel;
         }
         else bigger = this.znam;
-
         for (int i = bigger/2; i > 0 ; i--) {
-
             if ((this.chysel % i == 0) && (this.znam % i == 0)) {
-
                 this.chysel = this.chysel/i;
                 this.znam = this.znam/i;
                 return this;
             }
-
         }
         return this;
+    }
+
+    public void print(Fraction drib1, String znak , Fraction drib2) {
+
+        System.out.println(drib1.chysel + "    " + drib2.chysel + "      " + this.chysel  );
+        System.out.println( "-  " + znak + "  -  =   -"   );
+        System.out.println(drib1.znam + "     " + drib2.znam + "      " + this.znam  );
     }
 
     public int getChysel() {
