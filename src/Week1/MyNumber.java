@@ -7,6 +7,7 @@ public class MyNumber {
     private int value;
 
     public MyNumber(int value) {
+
         this.value = value;
     }
 
@@ -18,7 +19,7 @@ public class MyNumber {
         return new MyNumber(this.value - other.value);
     }
 
-    public MyNumber mult(MyNumber other){
+    public MyNumber mult(MyNumber other) {
         return new MyNumber(this.value * other.value);
     }
 
