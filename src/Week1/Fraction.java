@@ -68,4 +68,8 @@ public class Fraction {
     public int getZnam() {
         return znam;
     }
+
+    public void setChysel(int chysel) {
+        this.chysel = chysel;
+    }
 }

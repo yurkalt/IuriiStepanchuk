@@ -19,6 +19,8 @@ public class TestFraction {
 
         //drib1 - drib2 = drib4
 
+
+
         Fraction drib4 = drib1.rob(drib2);
         System.out.println("Rob: ");
         drib4.print(drib1,"-",drib2);
