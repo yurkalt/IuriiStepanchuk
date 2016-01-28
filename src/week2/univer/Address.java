@@ -1,4 +1,4 @@
-package week2;
+package week2.univer;
 
 /**
  * Created by Iurii on 23.01.2016.

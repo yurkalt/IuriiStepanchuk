@@ -1,4 +1,4 @@
-package week2;
+package week2.univer;
 
 /**
  * Created by Iurii on 24.01.2016.
@@ -7,16 +7,27 @@ public class Subject {
     private String name;
     private int totalHours;
     private int studentHours = 0;
-    private int studentMark;
+    private int studentMark = 0;
 
-    public Subject(int totalHours, String name, int mark) {
+    public Subject(int totalHours, String name) {
         this.totalHours=totalHours;
         this.name = name;
-        this.studentMark = mark;
     }
 
-    public boolean passTest () {
-        return true;
+    public void passTest () {
+        double progress = 100*studentHours/totalHours;
+        if (progress < 40) {
+            studentMark=2;
+        } else {
+            if (progress >= 40 && progress < 60) {
+                studentMark=3;
+            } else { if (progress >= 60 && progress <80) {
+                    studentMark=4;
+                    }else studentMark=5;
+
+            }
+        }
+
     }
     public String getInfo () {
         return null;

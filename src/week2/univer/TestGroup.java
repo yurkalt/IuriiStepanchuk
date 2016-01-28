@@ -1,4 +1,4 @@
-package week2;
+package week2.univer;
 
 /**
  * Created by Iurii on 24.01.2016.
@@ -36,6 +36,8 @@ public class TestGroup {
 
         Student[] filteredByName = group.filterByName("Oleg");
         System.out.println((filteredByName != null && filteredByName.length == 2) + " filterByName");
+
+        student1.getSubjects(0).passTest();
 
         group.deleteLastStudent();
         System.out.println((group.getSize() == 1) + " deleteLast");
