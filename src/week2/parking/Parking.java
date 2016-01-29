@@ -82,7 +82,7 @@ public class Parking {
         for (int i = 0; i <maxSpaces ; i++) {
             if (bikesOnParking[i]!=null){
             System.out.println(String.format("%s %s id:%s on %s parking place", bikesOnParking[i].getBrand(),bikesOnParking[i].getModel(), bikesOnParking[i].getId(),i));
-        }
+            }
         }
     }
 
@@ -133,7 +133,6 @@ public class Parking {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public void clearAllGarage() {
         for (int i = 0; i <maxSpaces ; i++) {

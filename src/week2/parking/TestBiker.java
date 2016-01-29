@@ -1,11 +1,12 @@
 package week2.parking;
 
+import week2.univer.Address;
+
 /**
  * Created by Iurii on 28.01.2016.
  */
 public class TestBiker {
     public static void main(String[] args) {
-
 
         Biker biker1 = new Biker("Vsaia");
         Biker biker2 = new Biker("Petia");
@@ -36,7 +37,12 @@ public class TestBiker {
         System.out.println("Bike was added to the place 35. Is model is RC? - " + parking1.getBikesOnParking(35).getModel().equals("RC"));
 
         parking1.changeAddress("UK","London", "Shevchenkas str", 1);
-        System.out.println("New address is : " + String.format(" %s,  %s, %s, %s ", parking1.getPlace().getCountry(),parking1.getPlace().getCity(),parking1.getPlace().getStreet(),parking1.getPlace().getHouseNum()));
+        Address address = parking1.getPlace();
+        System.out.println( String.format("New address is : %s,  %s, %s, %s ",
+                address.getCountry(),
+                address.getCity(),
+                address.getStreet(),
+                address.getHouseNum()));
 
         parking1.addMotoOnLastFreeSpace(biker2.getBikes(0));
 
