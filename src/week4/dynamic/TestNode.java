@@ -27,7 +27,7 @@ public class TestNode {
         Node test3 = NodeUtils.newChain();
         Node[] array = NodeUtils.toArray(test3);
         System.out.println("Second element of array is: " + array[2].toString());
-        System.out.println("Length is 5 right ? " + array.length);
+        System.out.println("Length is 5 right ? " + (array.length==5));
         System.out.println();
 
         // By Index!
@@ -54,13 +54,10 @@ public class TestNode {
         System.out.println("Index of element 4 is: ");
         System.out.println(NodeUtils.indexOf(4,test6));
         System.out.println();
+
         //Reverse
         System.out.println("Revers :");
         Node test7 = NodeUtils.newChain();
         NodeUtils.printList(NodeUtils.reverse(test7));
-
-
-
-
     }
 }
