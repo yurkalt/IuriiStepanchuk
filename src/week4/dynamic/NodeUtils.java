@@ -6,17 +6,16 @@ import java.util.ArrayList;
 /**
  * Created by Iurii on 10.02.2016.
  */
-public class NodeUtils {
+public class NodeUtils<T> {
 
     public static Node newChain () {
         return new Node(1, new Node(2, new Node(3, new Node(4, new Node(5,null)))));
     }
 
-    public static Node addToHead(Node newNode, Node chainHead){
+    public static<T> Node addToHead(Node<T> newNode, Node chainHead){
         newNode.next=chainHead;
         return newNode;
     }
-
 
     public static void addToTail(Node newNode, Node chainHead){
         if (chainHead.next == null) {
@@ -57,8 +56,8 @@ public class NodeUtils {
             return null;
         }
         if (index == 1 ) {
-            newNode.next= chain.next;
-            chain.next=newNode;
+            newNode.next = chain.next;
+            chain.next = newNode;
             return newNode;
         } else {return insertByIndex(index-1,newNode,chain.next);}
     }
