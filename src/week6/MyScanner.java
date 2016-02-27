@@ -12,6 +12,8 @@ import java.util.NoSuchElementException;
 public class MyScanner {
 
     private final String input;
+    private int start = 0;
+    private int end = 0;
 
     public MyScanner(String path) throws IOException {
         this.input = FileRead(path);
@@ -20,10 +22,11 @@ public class MyScanner {
     public String FileRead(String input) throws IOException {
         Reader reader = new FileReader(input);
         StringBuilder result = new StringBuilder();
+        char[] buff = new char[1000];
         int val = -1;
         try {
-            while ((val = reader.read()) != -1) {
-                result.append((char) val);
+            while ((val = reader.read(buff)) != -1) {
+                result.append(buff);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,18 +46,33 @@ public class MyScanner {
         return null;
     }
 
-    public static String nextString(String str) {
-        int ind = str.indexOf(useDelemiter("space"));
-        String res = str.substring(0, ind);
-
-        if (str.substring(0, ind) instanceof String) {
-            return res;
-        } else {
-            if (str.length() > 1) {
-                nextString(str.substring(ind, str.length()));
-            }
+    public static boolean hasNext(MyScanner scan) {
+        if (scan.start == scan.input.length()) {
+            return false;
         }
-        throw new NoSuchElementException();
+        return true;
+    }
+
+    public static String nextString(MyScanner scan) {
+        String delimSpace = useDelemiter("space");
+        String delimLine = useDelemiter("line");
+        while (delimSpace.equals(String.valueOf(scan.input.charAt(scan.start)))) {
+            scan.start++;
+        }
+        if (delimLine.equals(String.valueOf(scan.input.charAt(scan.start)))) {
+            scan.start++;
+        }
+        String temp = scan.input.substring(scan.start, scan.input.length());
+        int temStart = scan.start;
+        if (temp.indexOf(delimLine) < temp.indexOf(delimSpace)) {
+            scan.end = temp.indexOf(delimLine) + temStart;
+            scan.start = scan.end + 1;
+            return scan.input.substring(temStart, scan.end);
+        } else {
+            scan.end = temp.indexOf(delimSpace) + temStart;
+            scan.start = scan.end;
+            return scan.input.substring(temStart, scan.end);
+        }
     }
 
     public static boolean isInt(String str) {
@@ -86,17 +104,11 @@ public class MyScanner {
     public static String nextLine(String str) {
         int ind = str.indexOf(useDelemiter("line"));
         String res = str.substring(0, ind);
-
-        if (str.substring(0, ind) instanceof String) {
+        if (str.length() > 0) {
             return res;
         } else {
-            if (str.length() > 1) {
-                nextString(str.substring(ind, str.length()));
-            }
+            return null;
         }
-        throw new NoSuchElementException();
-
-
     }
 
     public String getInput() {

@@ -21,13 +21,21 @@ public class TestScanner {
         int res = nextInt(scaner2.getInput());
         System.out.println("First int in file:");
         System.out.println(res);
-        System.out.println("Can we do something with int? can we multiply?  " + (res * 10 == 250) );
+        System.out.println("Can we do something with int? can we multiply?  " + (res * 10 == 19990));
 
         System.out.println();
 
         System.out.println("First word: ");
-        System.out.printf(nextString(new MyScanner("Scanner.txt").getInput()));
+        System.out.printf(nextString(scaner1));
 
+        System.out.println();
+
+        System.out.println("DEMO ITERATOR");
+
+        int i = 500;
+        while (hasNext(scaner2) && (i-- > 0)) {
+            System.out.print(nextString(scaner2) + " ");
+        }
     }
 
 }
